@@ -14,9 +14,12 @@
     </form>
     <h2>Tasks:</h2>
     {% for task in tasks %}
-        <p> {{ task.title }} </p>
-        <p> Is completed ?:{{ task.completed }} </p>
+        <p> {{ task.title }} || completed:{{ task.completed }}</p>
         <p> {{ task.created }} </p>
+        <a href="{% url 'update' task.id %}">Update</a>
+        <a href="{% url 'delete' task.id %}">Delete</a>
+        <br>
+        <br>
     {% endfor %}
 
 </body>
