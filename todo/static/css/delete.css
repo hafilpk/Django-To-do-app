@@ -1,0 +1,74 @@
+/* delete_task.css */
+
+body {
+    background: #f9f9f9;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    background: white;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    text-align: center;
+    width: 90%;
+    max-width: 400px;
+}
+
+h1 {
+    color: #d9534f;
+    margin-bottom: 10px;
+}
+
+h2 {
+    margin-bottom: 20px;
+    color: #555;
+}
+
+.task {
+    margin: 20px 0;
+    padding: 10px;
+    background: #f0f0f0;
+    border-radius: 5px;
+    font-size: 18px;
+    color: #333;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.btn {
+    padding: 10px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    text-decoration: none;
+    text-align: center;
+}
+
+.delete {
+    background-color: #d9534f;
+    color: white;
+}
+
+.delete:hover {
+    background-color: #c9302c;
+}
+
+.cancel {
+    background-color: #0731d6;
+    color: white;
+}
+
+.cancel:hover {
+    background-color: #5a6268;
+}

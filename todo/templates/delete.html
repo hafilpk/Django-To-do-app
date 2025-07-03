@@ -1,19 +1,26 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Delete Your Task</title>
+    <link rel="stylesheet" href="{% static 'css/delete.css' %}">
 </head>
 <body>
-    <h1>Delete Task</h1>
-    <h2>Ary you sure ?</h2>
-    {{task}}
-    <form method="POST" action="">
-        {% csrf_token %}
-        <input type="submit" name="delete">
+    <div class="container">
+        <h1>Delete Task</h1>
+        <h2>Are you sure you want to delete this task?</h2>
 
-    </form>
-    <a href="{% url '' %}">Cancel</a>
+        <div class="task">
+            <p>{{ task }}</p>
+        </div>
+
+        <form method="POST" action="">
+            {% csrf_token %}
+            <input type="submit" class="btn delete" value="Delete">
+            <a href="{% url '' %}" class="btn cancel">Cancel</a>
+        </form>
+    </div>
 </body>
 </html>

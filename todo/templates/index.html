@@ -1,26 +1,39 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>To-do</title>
+    <title>To-do App</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
 </head>
 <body>
-    <h1>Welcome to the To-do App</h1>
-    <form method="POST" action="/">
-        {% csrf_token %}
-        {{TaskForm.title}}
-        <input class="btn" type="submit" name="Create Task">
-    </form>
-    <h2>Tasks:</h2>
-    {% for task in tasks %}
-        <p> {{ task.title }} || completed:{{ task.completed }}</p>
-        <p> {{ task.created }} </p>
-        <a href="{% url 'update' task.id %}">Update</a>
-        <a href="{% url 'delete' task.id %}">Delete</a>
-        <br>
-        <br>
-    {% endfor %}
+    <div class="container">
+        <h1>📝 To-do App</h1>
 
+        <form method="POST" action="/" class="task-form">
+            {% csrf_token %}
+            {{ TaskForm.title }}
+            <input class="btn" type="submit" value="Create Task">
+        </form>
+
+        <h2 class="task-heading">Your Tasks</h2>
+
+        <div class="task-list">
+            {% for task in tasks %}
+                <div class="task-item {% if task.completed %}completed{% endif %}">
+                    <p><strong>{{ task.title }}</strong></p>
+                    <p class="timestamp">Created: {{ task.created }}</p>
+                    <div class="actions">
+                        <a class="btn small" href="{% url 'update' task.id %}">Update</a>
+                        <a class="btn small delete" href="{% url 'delete' task.id %}">Delete 🗑️</a>
+                    </div>
+                </div>
+            {% empty %}
+                <p class="no-tasks">No tasks added yet.</p>
+            {% endfor %}
+        </div>
+    </div>
 </body>
 </html>
