@@ -7,5 +7,12 @@
 </head>
 <body>
     <h1>Welcome to the To-do App</h1>
+    <h2>Tasks:</h2>
+    {% for task in tasks %}
+        <p> {{ task.title }} </p>
+        <p> {{ task.completed }} </p>
+        <p> {{ task.created }} </p>
+    {% endfor %}
+
 </body>
 </html>
